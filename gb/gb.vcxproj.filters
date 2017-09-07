@@ -33,6 +33,9 @@
     <ClCompile Include="stdafx.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="DBUtils.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\..\..\..\桌面\json\assertions.h">
@@ -87,6 +90,9 @@
       <Filter>Header Files\class</Filter>
     </ClInclude>
     <ClInclude Include="SerialPort.h">
+      <Filter>Header Files\util</Filter>
+    </ClInclude>
+    <ClInclude Include="DBUtils.h">
       <Filter>Header Files\util</Filter>
     </ClInclude>
   </ItemGroup>

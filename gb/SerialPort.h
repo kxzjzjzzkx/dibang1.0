@@ -120,6 +120,9 @@ public:
 
 	void setHDlg(HWND _hDlg);
 
+	HDC hdc;
+
+	TCHAR szWindowClass[100];			// the main window class name
 
 private:  
  

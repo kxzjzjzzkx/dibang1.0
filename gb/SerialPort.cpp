@@ -31,7 +31,8 @@
 bool CSerialPort::s_bExit = false;  
 /** 当串口无数据时,sleep至下次查询间隔的时间,单位:秒 */   
 const UINT SLEEP_TIME_INTERVAL = 5;  
- 
+
+
 CSerialPort::CSerialPort(void)  
 : m_hListenThread(INVALID_HANDLE_VALUE)  
 {  
@@ -275,8 +276,44 @@ UINT WINAPI CSerialPort::ListenThread( void* pParam )
 		HDC hdc;
 //		hDlg = pSerialPort->getHDlg();
 		hdc = GetDC(pSerialPort->getHDlg());
+//		hdc = pSerialPort->hdc;
 		//char test[9] = { "xilageba" };
-		TextOut(hdc, 35, 180, result, 10);
+		int i = 0;
+		for (; i < 100;i++) {
+			if (result[i] == '\r') {
+				break;
+			}
+		}
+		char out[100]="00000.0kg";
+		memset(out, '\0', 100);
+		if (i >= 5) {
+			for (int j = 0,k=0; j < i; j++) {
+				if (result[j] == '\n' || result[j] == 'w' || result[j] == 'n') {
+					continue;
+				}
+				out[k] = result[j];
+				k++;
+			}
+		}
+		int xi = 0;
+		for (; xi < 12; xi++) {
+			if (out[xi] == '.') {
+				break;
+			}
+		}
+		if (xi < 5 ) {
+			char zero[5] = "";
+			memset(out, '\0', 5);
+			int xZero = 0;
+			for (; xi <=5-xi;xi++) {
+				zero[xZero] = '0';
+				xZero++;
+			}
+
+			sprintf(out, "%s%s", zero, out);
+		}
+		TextOut(hdc, 50, 160, out, strlen(out));
+
 		//HWND hEditControl = GetDlgItem(pSerialPort->getHDlg(), IDC_EDIT_B);
 		//GetWindowText(hEditControl, "abc", 100);
 
@@ -310,7 +347,7 @@ bool CSerialPort::ReadChar( char &cRecved )
  
         return false;  
     }  
- 
+	PurgeComm(m_hComm, PURGE_RXCLEAR | PURGE_TXCLEAR | PURGE_RXABORT | PURGE_TXABORT);
     /** 离开临界区 */   
     LeaveCriticalSection(&m_csCommunicationSync);  
  
@@ -342,6 +379,7 @@ void CSerialPort::Read(char *result) {
 		return ;
 
 	}
+	PurgeComm(m_hComm, PURGE_RXCLEAR | PURGE_TXCLEAR | PURGE_RXABORT | PURGE_TXABORT);
 	/** 离开临界区 */
 	LeaveCriticalSection(&m_csCommunicationSync);
 

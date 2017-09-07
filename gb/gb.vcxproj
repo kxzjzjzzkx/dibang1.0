@@ -111,6 +111,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="DBUtils.cpp" />
     <ClCompile Include="gb.cpp" />
     <ClCompile Include="HttpUtils.cpp" />
     <ClCompile Include="SerialPort.cpp" />
@@ -123,6 +124,7 @@
     <ClInclude Include="..\..\..\..\桌面\json\assertions.h" />
     <ClInclude Include="..\..\..\..\桌面\json\version.h" />
     <ClInclude Include="DBInfo.h" />
+    <ClInclude Include="DBUtils.h" />
     <ClInclude Include="gb.h" />
     <ClInclude Include="HttpUtils.h" />
     <ClInclude Include="json\autolink.h" />

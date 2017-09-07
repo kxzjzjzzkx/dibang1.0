@@ -36,6 +36,7 @@
 #define IDC_BUTTON_ST_COM               1022
 #define IDC_BUTTON4                     1023
 #define IDC_BUTTON_SC_COM               1023
+#define IDC_DO_LOGIN                    1023
 #define IDC_DATETIMEPICKER1             1026
 #define IDC_DATETIMEPICKER2             1027
 #define IDC_BUTTON5                     1028
