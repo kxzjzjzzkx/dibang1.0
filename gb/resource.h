@@ -25,6 +25,7 @@
 #define IDC_LIST1                       1015
 #define IDC_LIST2                       1016
 #define IDC_EDIT1                       1017
+#define IDC_ACCOUNT                     1017
 #define IDC_BUTTON1                     1018
 #define IDC_BUTTON_BT_COM               1018
 #define IDC_BUTTON2                     1019
@@ -32,6 +33,7 @@
 #define IDC_BUTTON_BC_COM               1019
 #define IDC_CHECK1                      1020
 #define IDC_EDIT2                       1021
+#define IDC_PASSWORD                    1021
 #define IDC_BUTTON3                     1022
 #define IDC_BUTTON_ST_COM               1022
 #define IDC_BUTTON4                     1023

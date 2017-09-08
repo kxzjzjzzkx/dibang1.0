@@ -36,6 +36,9 @@
     <ClCompile Include="DBUtils.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="MD5.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\..\..\..\桌面\json\assertions.h">
@@ -95,10 +98,22 @@
     <ClInclude Include="DBUtils.h">
       <Filter>Header Files\util</Filter>
     </ClInclude>
+    <ClInclude Include="MD5.h">
+      <Filter>Header Files\util</Filter>
+    </ClInclude>
+    <ClInclude Include="users.h">
+      <Filter>Header Files\class</Filter>
+    </ClInclude>
+    <ClInclude Include="DateTypeUtils.h">
+      <Filter>Header Files\util</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <None Include="resource.hm">
       <Filter>Header Files</Filter>
+    </None>
+    <None Include="dibang.mdb">
+      <Filter>Resource Files</Filter>
     </None>
   </ItemGroup>
   <ItemGroup>

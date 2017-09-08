@@ -18,7 +18,4 @@
 #include <tchar.h>
 #include <stdio.h>
 
-#import "C:\Program Files\Common Files\System\ado\msado15.dll" no_namespace rename("EOF","adoEOF")
-
-
 // TODO: reference additional headers your program requires here
