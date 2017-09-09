@@ -171,7 +171,7 @@ std::string MD5::GetHexStr(unsigned int num_str) {
 
 // function: Encode
 // @param src_info:要加密的信息
-// return :加密后的MD5值
+// return :加密后的MD5值 默认 32位
 std::string MD5::Encode(std::string src_info) {
 	ParamDynamic param;
 	param.ua_ = kA;

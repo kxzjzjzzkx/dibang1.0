@@ -7,6 +7,7 @@
 #include <fstream>
 #include <cassert>
 #include "json/json.h"
+#include <atlconv.h>
 
 
 
@@ -49,13 +50,14 @@ string HttpUtils::httpGet(_TCHAR* url){
 				pwText = new wchar_t[dwNum];                                                //根据ASCII码的字符数分配UTF8的空间
 				MultiByteToWideChar(CP_UTF8, 0, szBuffer, -1, pwText, dwNum);           //将ASCII码转换成UTF8
 				//
-
                 //printf("%s", szBuffer);
 				//result = Temp;
-				string temp;
-				char *psText;
-				psText = new char[dwNum];
-				WideCharToMultiByte(CP_OEMCP,NULL,pwText,-1,psText,dwNum,NULL,FALSE);
+				//string temp;
+				USES_CONVERSION;
+				char *psText = W2A(pwText);
+				//sprintf(psText, "%s", pwText);
+				//psText = new char[dwNum];
+				//WideCharToMultiByte(CP_OEMCP,NULL,pwText,-1,psText,dwNum,NULL,FALSE);
 				result.append(psText);
             }
 			InternetCloseHandle(hHttp);

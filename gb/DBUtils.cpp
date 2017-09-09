@@ -79,6 +79,33 @@ public:
 		}
 		return HX_pRecordset;
 	}
+
+	void addRecord(char* sql) {
+		_variant_t RecordsAffected;
+		CoInitialize(NULL);         //初始化OLE/COM库环境
+		HRESULT hr;
+		try
+		{
+			hr = HX_pConnection.CreateInstance("ADODB.Connection");///创建Connection对象
+			if (SUCCEEDED(hr))
+			{
+				hr = HX_pConnection->Open("Provider=Microsoft.Jet.OLEDB.4.0;Data Source=dibang.mdb", "", "", adModeUnknown);          //access2003
+			}
+		}
+		catch (_com_error e)///捕捉异常
+		{
+		}
+		HX_pRecordset.CreateInstance(__uuidof(Recordset)); //实例化结果集对象   
+		try
+		{
+			HX_pConnection->Execute(sql, &RecordsAffected, adCmdText);
+		}
+		catch (_com_error* e)
+		{
+		}
+		HX_pConnection->Close();
+		::CoUninitialize();
+	}
 };
 
 

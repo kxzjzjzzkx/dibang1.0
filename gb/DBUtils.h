@@ -14,4 +14,5 @@ public:
 
 	void OnInitADOConn();
 	void ExitConnect();
+
 };
