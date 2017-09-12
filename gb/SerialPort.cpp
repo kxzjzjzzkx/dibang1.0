@@ -36,7 +36,7 @@ const UINT SLEEP_TIME_INTERVAL = 5;
 CSerialPort::CSerialPort(void)  
 : m_hListenThread(INVALID_HANDLE_VALUE)  
 {  
-    m_hComm = INVALID_HANDLE_VALUE;  
+    m_hComm = INVALID_HANDLE_VALUE;
     m_hListenThread = INVALID_HANDLE_VALUE;  
  
     InitializeCriticalSection(&m_csCommunicationSync);  
@@ -265,7 +265,7 @@ UINT WINAPI CSerialPort::ListenThread( void* pParam )
         /** 如果串口输入缓冲区中无数据,则休息一会再查询 */   
         if ( BytesInQue == 0 )  
         {  
-            Sleep(SLEEP_TIME_INTERVAL);  
+            Sleep(1);  
             continue;  
         } 
 		
@@ -312,7 +312,7 @@ UINT WINAPI CSerialPort::ListenThread( void* pParam )
 
 			sprintf(out, "%s%s", zero, out);
 		}
-		TextOut(hdc, 50, 160, out, strlen(out));
+		TextOut(hdc, 50, 100, out, strlen(out));
 
 		//HWND hEditControl = GetDlgItem(pSerialPort->getHDlg(), IDC_EDIT_B);
 		//GetWindowText(hEditControl, "abc", 100);
