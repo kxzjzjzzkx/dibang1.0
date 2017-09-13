@@ -110,6 +110,9 @@
     <ClInclude Include="StringUtils.h">
       <Filter>Header Files\util</Filter>
     </ClInclude>
+    <ClInclude Include="suppliers.h">
+      <Filter>Header Files\class</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <None Include="resource.hm">

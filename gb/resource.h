@@ -44,13 +44,13 @@
 #define IDC_BUTTON7                     1030
 #define IDC_EDIT_B                      1031
 #define IDC_BUTTON11                    1031
-#define IDC_TAB1                        1032
+#define IDC_TAB_USER                    1032
 #define IDC_BUTTON8                     1033
 #define IDC_BUTTON9                     1034
 #define IDC_BUTTON10                    1035
 #define IDC_BUTTON5                     1036
 #define IDC_BUTTON1                     1041
-#define IDC_TAB2                        1042
+#define IDC_TAB_STORAGE                 1042
 #define IDC_STATIC                      -1
 
 // Next default values for new objects
