@@ -25,6 +25,7 @@
 #include <string>
 #include <fstream>
 #include "HttpUtils.h"
+#include <regex>
 
  
 /** 线程退出标志 */   
@@ -275,7 +276,7 @@ UINT WINAPI CSerialPort::ListenThread( void* pParam )
 //		HWND hDlg;
 		HDC hdc;
 //		hDlg = pSerialPort->getHDlg();
-		hdc = GetDC(pSerialPort->getHDlg());
+//		hdc = GetDC(pSerialPort->getHDlg());
 //		hdc = pSerialPort->hdc;
 		//char test[9] = { "xilageba" };
 		int i = 0;
@@ -384,6 +385,71 @@ void CSerialPort::Read(char *result) {
 	LeaveCriticalSection(&m_csCommunicationSync);
 
 }
+
+void CSerialPort::ReadOne(char *result) {
+	//char str[100];				// 返回结果
+	memset(result, '\0', 100);
+	DWORD wCount = 100;
+	BOOL bReadStat;			// 是否读到
+	string matchStr;
+
+	if (m_hComm == INVALID_HANDLE_VALUE)
+	{
+		// 设备未成功安装时，给出测试数据
+		strcpy(result, "0.0");
+		return;
+	}
+
+	/** 临界区保护 */
+	EnterCriticalSection(&m_csCommunicationSync);
+
+	bReadStat = ReadFile(m_hComm, result, wCount, &wCount, NULL);
+	if ((!bReadStat)) {
+		/** 获取错误码,可以根据该错误码查出错误原因 */
+		DWORD dwError = GetLastError();
+		/** 清空串口缓冲区 */
+		PurgeComm(m_hComm, PURGE_RXCLEAR | PURGE_RXABORT);
+		LeaveCriticalSection(&m_csCommunicationSync);
+		return;
+
+	}
+	PurgeComm(m_hComm, PURGE_RXCLEAR | PURGE_TXCLEAR | PURGE_RXABORT | PURGE_TXABORT);
+	/** 离开临界区 */
+	LeaveCriticalSection(&m_csCommunicationSync);
+	
+	char tempResult[50];
+	memset(tempResult, 0, 50);
+	int j=0;
+	bool split=false;
+	string resultArray[10];
+	int stringInt = 0;
+	string tempStr;
+	for (int i=0;i<strlen(result);i++)
+	{
+		if (stringInt == 10) {
+			break;
+		}
+		if ((result[i] >= '0'&&result[i] <= '9')||result[i]=='.') {
+			tempStr = tempStr+ result[i];
+		}
+		else {
+			if (i>0&&result[i - 1] >= '0'&&result[i - 1] <= '9') {
+				resultArray[stringInt] = tempStr;
+				tempStr = "";
+				stringInt++;
+			}
+		}
+	}
+	for (int i = 0; i < 10;i++) {
+		if (resultArray[i].length()== 7) {
+			strcpy(tempResult, resultArray[i].c_str());
+			break;
+		}
+	}
+	memset(result, '\0', 100);
+	strcpy(result, tempResult);
+
+}
  
 bool CSerialPort::WriteData( unsigned char* pData, unsigned int length )  
 {  
@@ -413,12 +479,4 @@ bool CSerialPort::WriteData( unsigned char* pData, unsigned int length )
     LeaveCriticalSection(&m_csCommunicationSync);  
  
     return true;  
-}
-
-HWND CSerialPort::getHDlg() {
-	return hDlg;
-}
-
-void CSerialPort::setHDlg(HWND _hDlg) {
-	hDlg = _hDlg;
 }

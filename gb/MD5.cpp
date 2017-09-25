@@ -1,3 +1,4 @@
+#include "stdafx.h"
 #include "MD5.h"
 #include <iostream>
 // 幻数定义
@@ -195,4 +196,32 @@ std::string MD5::Encode(std::string src_info) {
 	result.append(GetHexStr(param.uc_));
 	result.append(GetHexStr(param.ud_));
 	return result;
+}
+
+// function: Encode
+// @param src_info:要加密的信息
+// return :加密后的MD5值 默认 16位
+std::string MD5::EncodeForShort(std::string src_info) {
+	ParamDynamic param;
+	param.ua_ = kA;
+	param.ub_ = kB;
+	param.uc_ = kC;
+	param.ud_ = kD;
+	std::string result;
+	const char *src_data = src_info.c_str();
+	char *out_data_ptr = NULL;
+	int total_byte = FillData(src_data, strlen(src_data), &out_data_ptr);
+	char * data_BIT_OF_GROUP = out_data_ptr;
+	for (int i = 0; i < total_byte / (BIT_OF_GROUP / BIT_OF_BYTE); ++i) {
+		data_BIT_OF_GROUP += i*(BIT_OF_GROUP / BIT_OF_BYTE);
+		RotationCalculate(data_BIT_OF_GROUP, param);
+	}
+	if (NULL != out_data_ptr) {
+		delete[] out_data_ptr, out_data_ptr = NULL;
+	}
+	result.append(GetHexStr(param.ua_));
+	result.append(GetHexStr(param.ub_));
+	result.append(GetHexStr(param.uc_));
+	result.append(GetHexStr(param.ud_));
+	return result.substr(8,16);
 }

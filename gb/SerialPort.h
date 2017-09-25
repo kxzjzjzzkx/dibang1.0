@@ -114,15 +114,11 @@ public:
      */ 
     bool ReadChar(char &cRecved);  
 	
-	void CSerialPort::Read(char *result);
+	void CSerialPort::Read(char *result);		// 读取com口信息
+	bool isClose=true;		//读取
 
-	HWND getHDlg();
+	void CSerialPort::ReadOne(char *result);
 
-	void setHDlg(HWND _hDlg);
-
-	HDC hdc;
-
-	TCHAR szWindowClass[100];			// the main window class name
 
 private:  
  
@@ -154,8 +150,6 @@ private:
      *  @see:      
      */ 
     static UINT WINAPI ListenThread(void* pParam);
-
-
  
 private:  
  
@@ -173,9 +167,7 @@ private:
 
 	char outData[200];
 	
-	/* dialog 句柄 */
-	HWND hDlg;
- 
+	
 };  
  
 #endif //SERIALPORT_H_ 

@@ -116,6 +116,7 @@
     <ClCompile Include="HttpUtils.cpp" />
     <ClCompile Include="MD5.cpp" />
     <ClCompile Include="SerialPort.cpp" />
+    <ClCompile Include="SetMoneyService.h" />
     <ClCompile Include="stdafx.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Create</PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Create</PrecompiledHeader>
@@ -124,11 +125,12 @@
   <ItemGroup>
     <ClInclude Include="..\..\..\..\桌面\json\assertions.h" />
     <ClInclude Include="..\..\..\..\桌面\json\version.h" />
+    <ClInclude Include="sysconfig.h" />
     <ClInclude Include="DateTypeUtils.h" />
-    <ClInclude Include="DBInfo.h" />
     <ClInclude Include="DBUtils.h" />
     <ClInclude Include="gb.h" />
     <ClInclude Include="HttpUtils.h" />
+    <ClInclude Include="importUpdateLog.h" />
     <ClInclude Include="json\autolink.h" />
     <ClInclude Include="json\config.h" />
     <ClInclude Include="json\features.h" />

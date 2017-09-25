@@ -44,6 +44,9 @@ public:
 	}
 	std::string Encode(std::string src_info);
 
+	std::string EncodeForShort(std::string src_info);
+
+
 protected:
 	UInt32 CycleMoveLeft(UInt32 src_num, int bit_num_to_move);
 	UInt32 FillData(const char *in_data_ptr, int data_byte_len, char** out_data_ptr);

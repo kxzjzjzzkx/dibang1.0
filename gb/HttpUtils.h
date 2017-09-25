@@ -11,16 +11,14 @@
 #include "stdafx.h"
 
 #include <stdio.h>
-
 #pragma comment(lib,"wininet.lib")
 
 #include <iostream>
 #include <cstdio>
 #include <WinInet.h>
-#include <string>
+
 #include <list>
 #include <queue> 
-#include "DBInfo.h"
 
 using namespace std;
 
@@ -37,7 +35,7 @@ class HttpUtils{
 		//DBInfo ParseJsonInfo(const string &strJsonInfo);
 		// 获取list 数据
 		//list<DBInfo> HttpUtils::ParseJsonInfoForList(const string &strJsonInfo);
-		queue<DBInfo> HttpUtils::ParseJsonInfoForList(const string &strJsonInfo);
+		//queue<DBInfo> HttpUtils::ParseJsonInfoForList(const string &strJsonInfo);
 	protected:
 		
 

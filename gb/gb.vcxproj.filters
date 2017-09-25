@@ -19,6 +19,12 @@
       <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
       <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav</Extensions>
     </Filter>
+    <Filter Include="Header Files\service">
+      <UniqueIdentifier>{32fff0cb-0a76-4125-a9e2-abd2df4c3b68}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\service\impl">
+      <UniqueIdentifier>{a15afbb6-46ee-429b-9c05-395da3e12db0}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="gb.cpp">
@@ -38,6 +44,9 @@
     </ClCompile>
     <ClCompile Include="MD5.cpp">
       <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="SetMoneyService.h">
+      <Filter>Header Files\service</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -89,9 +98,6 @@
     <ClInclude Include="json\writer.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="DBInfo.h">
-      <Filter>Header Files\class</Filter>
-    </ClInclude>
     <ClInclude Include="SerialPort.h">
       <Filter>Header Files\util</Filter>
     </ClInclude>
@@ -112,6 +118,12 @@
     </ClInclude>
     <ClInclude Include="suppliers.h">
       <Filter>Header Files\class</Filter>
+    </ClInclude>
+    <ClInclude Include="importUpdateLog.h">
+      <Filter>Header Files\service</Filter>
+    </ClInclude>
+    <ClInclude Include="sysconfig.h">
+      <Filter>Header Files\util</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

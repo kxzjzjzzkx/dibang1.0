@@ -14,25 +14,22 @@
 #define IDD_SHURUKUANG                  110
 #define IDR_MAINFRAME                   128
 #define IDD_DIALOG2                     130
-#define IDD_DIALOG3                     131
+#define IDD_DIALOG_SET_MONEY            131
 #define IDD_DIALOG_STORAGE              132
 #define IDD_DIALOG_LOGIN                133
 #define IDM_LOGIN                       134
 #define IDM_STORAGE                     135
-#define IDC_COMBO1                      1011
-#define IDC_LIST1                       1015
-#define IDC_LIST2                       1016
-#define IDC_LIST_STORAGE                1016
-#define IDC_EDIT1                       1017
-#define IDC_ACCOUNT                     1017
+#define IDD_DIALOG_CHOOSE_PRODUCT       137
+#define IDD_DIALOG_PORT_CONFIG          138
+#define IDC_COMBO_PRODUCT_CODE          1011
+#define IDC_LIST_STORAGE                1012
+#define IDC_EDIT_SEARCHKEY              1013
+#define IDC_EDIT_ACCOUNT                1014
+#define IDC_EDIT_PASSWORD               1015
 #define IDC_BUTTON_BT_COM               1018
-#define IDC_BUTTON2                     1019
 #define IDC_BUTTON_BC_                  1019
 #define IDC_BUTTON_BC_COM               1019
 #define IDC_CHECK1                      1020
-#define IDC_EDIT2                       1021
-#define IDC_PASSWORD                    1021
-#define IDC_BUTTON3                     1022
 #define IDC_BUTTON_ST_COM               1022
 #define IDC_BUTTON4                     1023
 #define IDC_BUTTON_SC_COM               1023
@@ -41,16 +38,24 @@
 #define IDC_DATETIMEPICKER2             1027
 #define IDC_BUTTON_PAY                  1028
 #define IDC_BUTTON_SET_MONEY            1029
-#define IDC_BUTTON7                     1030
-#define IDC_EDIT_B                      1031
-#define IDC_BUTTON11                    1031
+#define IDC_BUTTON_ONLINE_SCORE         1030
+#define IDC_BUTTON_STORAGE_FAIL         1031
 #define IDC_TAB_USER                    1032
-#define IDC_BUTTON8                     1033
-#define IDC_BUTTON9                     1034
-#define IDC_BUTTON10                    1035
-#define IDC_BUTTON5                     1036
-#define IDC_BUTTON1                     1041
+#define IDC_BUTTON_OPEN_ADMIN           1033
+#define IDC_BUTTON_PORT_CONFIG          1034
+#define IDC_BUTTON_SEARCH               1035
+#define IDC_BUTTON_SC_COM_ZERO          1036
+#define IDC_BUTTON_ADD_NEW_GUEST        1041
 #define IDC_TAB_STORAGE                 1042
+#define IDC_BUTTON_SET_SURE             1043
+#define IDC_BUTTON_SET_CANCLE           1044
+#define IDC_EDIT_PRODUCT_NAME           1045
+#define IDC_EDIT_SET_MONEY              1046
+#define IDC_BUTTON_CHOOSE_CATEGORY      1047
+#define IDC_LIST_PRODUCTS               1049
+#define IDC_BUTTON_CHOOSE               1050
+#define IDC_TAB_PORT_CONFIG             1051
+#define IDC_BUTTON_PORT_CONFIG_SAVE     1052
 #define IDC_STATIC                      -1
 
 // Next default values for new objects
@@ -58,9 +63,9 @@
 #ifdef APSTUDIO_INVOKED
 #ifndef APSTUDIO_READONLY_SYMBOLS
 #define _APS_NO_MFC                     1
-#define _APS_NEXT_RESOURCE_VALUE        136
+#define _APS_NEXT_RESOURCE_VALUE        139
 #define _APS_NEXT_COMMAND_VALUE         32771
-#define _APS_NEXT_CONTROL_VALUE         1043
+#define _APS_NEXT_CONTROL_VALUE         1053
 #define _APS_NEXT_SYMED_VALUE           111
 #endif
 #endif
