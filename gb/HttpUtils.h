@@ -24,12 +24,15 @@ using namespace std;
 
 class HttpUtils{
 	public:
+
 		
 		~HttpUtils(void);
 		
 		string httpGet(_TCHAR* url);
 		
-		int httpPost(_TCHAR* domain,_TCHAR* url);
+		int httpPost(_TCHAR* domain,_TCHAR* url,_TCHAR* data);
+
+		string string_To_UTF8(const string & str);
 		
 		// 解析卡口Json数据 [3/14/2017/shike]
 		//DBInfo ParseJsonInfo(const string &strJsonInfo);

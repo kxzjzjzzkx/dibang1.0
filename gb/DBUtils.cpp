@@ -43,15 +43,15 @@ public:
 		//_ConnectionPtr m_pConnection;
 		//_RecordsetPtr m_pRecordset;
 		HRESULT hr;
+
 		try
 		{
 			hr = HX_pConnection.CreateInstance("ADODB.Connection");///创建Connection对象
-																  //     hr = m_pConnection.CreateInstance(__uuidof(Connection));//no_namespace的好处
-
+			 //     hr = m_pConnection.CreateInstance(__uuidof(Connection));//no_namespace的好处
 			if (SUCCEEDED(hr))
 			{
 				hr = HX_pConnection->Open("Provider=Microsoft.Jet.OLEDB.4.0;Data Source=dibang.mdb", "", "", adModeUnknown);          //access2003
-																																	 //			hr = m_pConnection->Open("Provider=Microsoft.ACE.OLEDB.12.0;Data Source=test.accdb","","",adModeUnknown);    //access2007
+				 //			hr = m_pConnection->Open("Provider=Microsoft.ACE.OLEDB.12.0;Data Source=test.accdb","","",adModeUnknown);    //access2007
 				printf("成功连接数据库\n");
 			}
 		}
@@ -63,9 +63,6 @@ public:
 														  //执行sql语句   
 		try
 		{
-			//char sql[300];
-			//memset(sql, 0, 300);
-			//strcat(sql, "SELECT * FROM users");
 			HX_pRecordset->Open(sql, HX_pConnection.GetInterfacePtr(), adOpenDynamic, adLockOptimistic, adCmdText);
 		}
 		catch (_com_error* e)

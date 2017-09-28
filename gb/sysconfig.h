@@ -8,6 +8,17 @@ string URL_LOGIN = "http://dibang.zz91.com/api/loginsave.html?username=<USERNAME
 string URL_GET_SELLER = "http://dibang.zz91.com/api/searchsuppliers.html?iccode=<iccode>";
 string URL_DATA_UPDATE_LOG = "http://dibang.zz91.com/api/datatable_update.html?maxid=<MAXID>&datatable=<DATATABLE>&company_id=<COMPANY_ID>";
 
+string URL_DATA_GET_STORAGE_LASTTIME = "http://dibang.zz91.com/api/getstoragedate.html?company_id=<COMPANY_ID>";
+string URL_DATA_UPLOAD_STORAGE_DOMAIN = "dibang.zz91.com";
+string URL_DATA_UPLOAD_STORAGE_URL = "/api/updatestorage.html";
+string URL_DATA_UPLOAD_STORAGE_PARAM = "company_id=<COMPANY_ID>&storelist=<DATA>";
+
+string URL_DATA_GET_SUPPLIERS_LASTTIME = "http://dibang.zz91.com/api/getsuppliersdate.html?company_id=<COMPANY_ID>";
+string URL_DATA_UPLOAD_SUPPLIERS_DOMAIN = "dibang.zz91.com";
+string URL_DATA_UPLOAD_SUPPLIERS_URL = "/api/updatesuppliers.html";
+string URL_DATA_UPLOAD_SUPPLIERS_PARAM = "company_id=<COMPANY_ID>&supplierlist=<DATA>";
+;
+
 // local properties
 char LOGIN_USERNAME[50];				// 登录用户名
 char LOGIN_SELFID[50];					// 登录的selfid信息
@@ -26,6 +37,9 @@ string SQL_V_SUPPLIERS_FOR_PAY		= "select * from v_suppliers where ispay > 0 ord
 
 string SQL_SUPPLIERS_BY_ICCODE	= "select top 1 * from suppliers where iccode = '<ICCODE>' order by id desc";
 string SQL_SUPPLIERS_FOR_TOP1	= "select top 1 id from suppliers order by id desc";
+string SQL_SUPPLIERS_FOR_UPLOAD = "select * from suppliers where gmt_modified >#<GMT_MODIFIED>#";
+
+string SQL_STORAGE_FOR_UPLOAD = "select * from storage where gmt_modified >#<GMT_MODIFIED>#";
 
 string SQL_V_STORAGELIST_BY_ICCODE = "select * from v_storagelist where iccode = '<ICCODE>' order by id desc";
 

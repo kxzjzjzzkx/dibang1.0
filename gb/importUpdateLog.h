@@ -46,7 +46,7 @@ void insertForProducts(Json::Value value) {
 			hasExist = _com_util::ConvertBSTRToString((_bstr_t)var);
 			db.HX_pRecordset->MoveNext();
 		}
-		if (!hasExist._Equal("0")) {
+		if (hasExist!="0") {
 			continue;
 		}
 		sqlString = SQL_PRODUCTS_INSERT;
@@ -107,7 +107,7 @@ void insertForCategoryProducts(Json::Value value) {
 			hasExist = _com_util::ConvertBSTRToString((_bstr_t)var);
 			db.HX_pRecordset->MoveNext();
 		}
-		if (!hasExist._Equal("0")) {
+		if (hasExist!="0") {
 			continue;
 		}
 		sqlString = SQL_CATEGORY_PRODUCTS_INSERT;
@@ -164,10 +164,10 @@ void systemDataInit() {
 			db.HX_pRecordset->MoveNext();
 			continue;
 		}
-		if (datatable._Equal("products")) {
+		if (datatable=="products") {
 			insertForProducts(value);
 		}
-		if (datatable._Equal("category_products")) {
+		if (datatable=="category_products") {
 			insertForCategoryProducts(value);
 		}
 		int nSize = value["list"].size();

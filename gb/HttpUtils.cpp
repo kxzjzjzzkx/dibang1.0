@@ -70,7 +70,34 @@ string HttpUtils::httpGet(_TCHAR* url){
 	return result;
 }
 
-int HttpUtils::httpPost(_TCHAR* domain,_TCHAR* url){
+string HttpUtils::string_To_UTF8(const string & str)
+{
+	int nwLen = ::MultiByteToWideChar(CP_ACP, 0, str.c_str(), -1, NULL, 0);
+
+	wchar_t * pwBuf = new wchar_t[nwLen + 1];//一定要加1，不然会出现尾巴
+	ZeroMemory(pwBuf, nwLen * 2 + 2);
+
+	::MultiByteToWideChar(CP_ACP, 0, str.c_str(), str.length(), pwBuf, nwLen);
+
+	int nLen = ::WideCharToMultiByte(CP_UTF8, 0, pwBuf, -1, NULL, NULL, NULL, NULL);
+
+	char * pBuf = new char[nLen + 1];
+	ZeroMemory(pBuf, nLen + 1);
+
+	::WideCharToMultiByte(CP_UTF8, 0, pwBuf, nwLen, pBuf, nLen, NULL, NULL);
+
+	std::string retStr(pBuf);
+
+	delete[]pwBuf;
+	delete[]pBuf;
+
+	pwBuf = NULL;
+	pBuf = NULL;
+
+	return retStr;
+}
+
+int HttpUtils::httpPost(_TCHAR* domain,_TCHAR* url,_TCHAR* data){
 	//原始协议头
     char _HTTP_ARAC[] = "Accept: */*\r\n"\
                         "Referer: "\
@@ -80,42 +107,44 @@ int HttpUtils::httpPost(_TCHAR* domain,_TCHAR* url){
                         "Content-Type: application/x-www-form-urlencoded\r\n\r\n";
     char _HTTP_POST[] = _POST;
     char _HTTP_File[1024] ={0};
-    cout << "提交HTTP协议头：" << _HTTP_ARAC << endl;
-    cout << "提交POST数据：" << _POST << endl;
+    //cout << "提交HTTP协议头：" << _HTTP_ARAC << endl;
+    //cout << "提交POST数据：" << _POST << endl;
     HINTERNET Inte = InternetOpenA ("Mozilla/4.0 (compatible; MSIE 9.0; Windows NT 6.1)", 1, "" ,"" ,0);    //初始化Wininet并创建一个HTTP连接
     if(0 == Inte){
         InternetCloseHandle(Inte);
-        cout << "error InternetOpen" << endl;
+        //cout << "error InternetOpen" << endl;
     }
     HINTERNET Connect = InternetConnectA (Inte, domain,PORT, "","" , 3, 0, 0);    //请求与网站连接
       if(0 == Connect){
         InternetCloseHandle(Inte);
         InternetCloseHandle(Connect);
-        cout << "error InternetConnect" << endl;
+        //cout << "error InternetConnect" << endl;
     }
 	HINTERNET HttpOpen = HttpOpenRequestA (Connect, "POST", url, "HTTP/1.1", NULL,NULL,1, 0);  //向网站服务器发送请求页面
       if(0 == HttpOpen){
         InternetCloseHandle(Inte);
         InternetCloseHandle(Connect);
         InternetCloseHandle(HttpOpen);
-        cout << "error HttpOpenRequest" << endl;
+        //cout << "error HttpOpenRequest" << endl;
     }
 
-    BOOL bo = HttpSendRequestA(HttpOpen, _HTTP_ARAC, strlen(_HTTP_ARAC), _HTTP_POST, strlen (_HTTP_POST));  //向网站服务器发送请求HTTP协议和POST请求数据
+    BOOL bo = HttpSendRequestA(HttpOpen, _HTTP_ARAC, strlen(_HTTP_ARAC), data, strlen (data));  //向网站服务器发送请求HTTP协议和POST请求数据
     if(bo == false){
         InternetCloseHandle(Inte);
         InternetCloseHandle(Connect);
         InternetCloseHandle(HttpOpen);
-        cout << "error HttpSendRequest" << endl;
+		char error[200];
+		sprintf(error, "%s", GetLastError());
+        //cout << "error HttpSendRequest" << endl;
     }
     DWORD y = 0;
      if(!InternetReadFile (HttpOpen, _HTTP_File, 1024, &y)){    //获取HTTP响应消息
         InternetCloseHandle(Inte);
         InternetCloseHandle(Connect);
         InternetCloseHandle(HttpOpen);
-        cout << "error InternetReadFile" << endl;
+        //cout << "error InternetReadFile" << endl;
     }else{
-        printf("%s",_HTTP_File);    //打印得到的响应消息
+        //printf("%s",_HTTP_File);    //打印得到的响应消息
     }
 	return 0;
 }
