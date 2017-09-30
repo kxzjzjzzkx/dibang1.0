@@ -55,7 +55,7 @@ BEGIN
     LTEXT           "只显示最新的20条",IDC_STATIC,529,171,78,8
     CONTROL         "",IDC_TAB_STORAGE,"SysTabControl32",0x0,121,187,555,109
     PUSHBUTTON      "作废",IDC_BUTTON_STORAGE_FAIL,623,320,56,39
-    PUSHBUTTON      "0皮重", IDC_BUTTON_SC_COM_ZERO,37,302,50,14
+    PUSHBUTTON      "0皮重",IDC_BUTTON_SC_COM_ZERO,37,302,50,14
 END
 
 IDD_DIALOG_LOGIN DIALOGEX 0, 0, 331, 194
@@ -112,6 +112,17 @@ BEGIN
     LTEXT           "波特率",IDC_STATIC,80,80,25,8
 END
 
+IDD_ABOUTBOX DIALOGEX 0, 0, 170, 62
+STYLE DS_SETFONT | DS_MODALFRAME | DS_FIXEDSYS | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "关于"
+FONT 8, "MS Shell Dlg", 0, 0, 0x1
+BEGIN
+    ICON            IDR_MAINFRAME,IDC_STATIC,14,14,21,20
+    LTEXT           "废料回收智能系统, 版本 1.0",IDC_STATIC,42,14,114,8,SS_NOPREFIX
+    LTEXT           "Copyright (C) 2017",IDC_STATIC,42,26,114,8
+    DEFPUSHBUTTON   "OK",IDOK,113,41,50,14,WS_GROUP
+END
+
 
 /////////////////////////////////////////////////////////////////////////////
 //
@@ -122,12 +133,13 @@ IDC_GB MENU
 BEGIN
     POPUP "系统"
     BEGIN
-        MENUITEM "&L登录",                        IDM_LOGIN
+        MENUITEM "&L登录或切换账号",                   IDM_LOGIN
         MENUITEM "&X退出",                        IDM_EXIT
     END
     POPUP "功能"
     BEGIN
         MENUITEM "&M过磅",                        IDM_STORAGE
+        MENUITEM "&D端口设置",                      IDM_PORT_CONFIG
     END
     POPUP "关于"
     BEGIN
@@ -176,6 +188,28 @@ BEGIN
 END
 #endif    // APSTUDIO_INVOKED
 
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Icon
+//
+
+// Icon with lowest ID value placed first to ensure application icon
+// remains consistent on all systems.
+IDI_ICON2               ICON                    "logo.ico"
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// String Table
+//
+
+STRINGTABLE
+BEGIN
+    IDS_APP_TITLE           "废料回收智能系统"
+    IDC_GB                  "GB"
+END
+
 #endif    // 中文(简体，中国) resources
 /////////////////////////////////////////////////////////////////////////////
 
@@ -189,50 +223,14 @@ LANGUAGE LANG_ENGLISH, SUBLANG_ENGLISH_US
 
 /////////////////////////////////////////////////////////////////////////////
 //
-// Dialog
-//
-
-IDD_ABOUTBOX DIALOGEX 0, 0, 170, 62
-STYLE DS_SETFONT | DS_MODALFRAME | DS_FIXEDSYS | WS_POPUP | WS_CAPTION | WS_SYSMENU
-CAPTION "About gb"
-FONT 8, "MS Shell Dlg", 0, 0, 0x1
-BEGIN
-    ICON            IDR_MAINFRAME,IDC_STATIC,14,14,21,20
-    LTEXT           "gb, Version 1.0",IDC_STATIC,42,14,114,8,SS_NOPREFIX
-    LTEXT           "Copyright (C) 2017",IDC_STATIC,42,26,114,8
-    DEFPUSHBUTTON   "OK",IDOK,113,41,50,14,WS_GROUP
-END
-
-
-/////////////////////////////////////////////////////////////////////////////
-//
-// DESIGNINFO
-//
-
-#ifdef APSTUDIO_INVOKED
-GUIDELINES DESIGNINFO
-BEGIN
-    IDD_ABOUTBOX, DIALOG
-    BEGIN
-        LEFTMARGIN, 7
-        RIGHTMARGIN, 163
-        TOPMARGIN, 7
-        BOTTOMMARGIN, 55
-    END
-END
-#endif    // APSTUDIO_INVOKED
-
-
-/////////////////////////////////////////////////////////////////////////////
-//
 // Icon
 //
 
 // Icon with lowest ID value placed first to ensure application icon
 // remains consistent on all systems.
-IDI_GB                  ICON                    "gb.ico"
+IDI_GB                  ICON                    "logo.ico"
 
-IDI_SMALL               ICON                    "small.ico"
+IDI_SMALL               ICON                    "logo.ico"
 
 
 /////////////////////////////////////////////////////////////////////////////
@@ -276,18 +274,6 @@ BEGIN
 END
 
 #endif    // APSTUDIO_INVOKED
-
-
-/////////////////////////////////////////////////////////////////////////////
-//
-// String Table
-//
-
-STRINGTABLE
-BEGIN
-    IDS_APP_TITLE           "gb"
-    IDC_GB                  "GB"
-END
 
 #endif    // 英语(美国) resources
 /////////////////////////////////////////////////////////////////////////////

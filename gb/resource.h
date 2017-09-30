@@ -21,6 +21,10 @@
 #define IDM_STORAGE                     135
 #define IDD_DIALOG_CHOOSE_PRODUCT       137
 #define IDD_DIALOG_PORT_CONFIG          138
+#define IDM_PORT_CONFIG                 139
+#define IDB_PNG1                        140
+#define IDI_ICON1                       142
+#define IDI_ICON2                       143
 #define IDC_COMBO_PRODUCT_CODE          1011
 #define IDC_LIST_STORAGE                1012
 #define IDC_EDIT_SEARCHKEY              1013
@@ -63,7 +67,7 @@
 #ifdef APSTUDIO_INVOKED
 #ifndef APSTUDIO_READONLY_SYMBOLS
 #define _APS_NO_MFC                     1
-#define _APS_NEXT_RESOURCE_VALUE        139
+#define _APS_NEXT_RESOURCE_VALUE        144
 #define _APS_NEXT_COMMAND_VALUE         32771
 #define _APS_NEXT_CONTROL_VALUE         1053
 #define _APS_NEXT_SYMED_VALUE           111

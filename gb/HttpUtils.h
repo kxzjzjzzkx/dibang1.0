@@ -43,7 +43,7 @@ class HttpUtils{
 		
 
 		// ¹Ø±Õ¾ä±ú [3/14/2017/shike]
-		void Release();
+		//void Release();
 
 		// ÊÍ·Å¾ä±ú [3/14/2017/shike]
 		//void ReleaseHandle( HINTERNET& hInternet );

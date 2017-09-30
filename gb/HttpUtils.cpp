@@ -133,8 +133,6 @@ int HttpUtils::httpPost(_TCHAR* domain,_TCHAR* url,_TCHAR* data){
         InternetCloseHandle(Inte);
         InternetCloseHandle(Connect);
         InternetCloseHandle(HttpOpen);
-		char error[200];
-		sprintf(error, "%s", GetLastError());
         //cout << "error HttpSendRequest" << endl;
     }
     DWORD y = 0;
@@ -148,79 +146,3 @@ int HttpUtils::httpPost(_TCHAR* domain,_TCHAR* url,_TCHAR* data){
     }
 	return 0;
 }
-
-// 解析Json数据 [11/8/2016/shike]
-//DBInfo HttpUtils::ParseJsonInfo(const string &strJsonInfo)
-//{
-//    Json::Reader reader;                                    //解析json用Json::Reader
-//    Json::Value value;
-//	DBInfo dbInfo;
-//	//可以代表任意类型
-//    if (!reader.parse(strJsonInfo, value))  
-//    {  
-//        //CVLog.LogMessage(LOG_LEVEL_ERROR,"[CXLDbDataMgr::GetVideoGisData] Video Gis parse data error...");
-//    }
-//	//dbInfo.setLang(value["city"].asString());
-//	dbInfo.setId(value["flag"].asInt());
-//	int ipt = value["flag"].asInt();
-//    if (!value["list"].isNull())        
-//    {
-//        int nSize = value["result"].size();
-//        for(int nPos = 0; nPos < nSize; ++nPos)                //对数据数组进行遍历
-//        {
-//            //PGCARDDEVDATA stru ;
-//            //stru.strCardName        = value["result"][nPos]["tollgateName"].asString();
-//            //stru.strCardCode        = value["result"][nPos]["tollgateCode"].asString();
-//            //std::string strCDNum    = value["result"][nPos]["laneNumber"].asString();    //增加:车道总数
-//            //stru.nLaneNum            = atoi(strCDNum.c_str());
-//            //std::string strLaneDir    = value["result"][nPos]["laneDir"].asString();        //增加:车道方向,进行规则转换
-//            //stru.strLaneDir            = TransformLaneDir(strLaneDir);
-//            //stru.dWgs84_x            = value["result"][nPos]["wgs84_x"].asDouble();
-//            //stru.dWgs84_y            = value["result"][nPos]["wgs84_y"].asDouble();
-//            //stru.dMars_x            = value["result"][nPos]["mars_x"].asDouble();
-//            //stru.dMars_y            = value["result"][nPos]["mars_y"].asDouble();
-//            //lstCardDevData.emplace_back(stru);
-//        }
-//    }
-//	return dbInfo;
-//}
-//
-//// 解析Json数据 带list
-//queue<DBInfo> HttpUtils::ParseJsonInfoForList(const string &strJsonInfo)
-//{
-//    Json::Reader reader;                                    //解析json用Json::Reader
-//    Json::Value value;
-//	queue<DBInfo> result;
-//	list<DBInfo> result1;
-//	//可以代表任意类型
-//    if (!reader.parse(strJsonInfo, value))  
-//    {
-//		// 程序错误数据为空
-//		//return result;
-//    }
-//    if (!value["list"].isNull())        
-//    {
-//        int nSize = value["list"].size();
-//        for(int nPos = 0; nPos < nSize; ++nPos)                //对数据数组进行遍历
-//        {
-//			DBInfo obj;
-//			//obj.setGmtCreated(value["list"][nPos]["postTime"]["time"].asString());
-//			obj.setCId(value["list"][nPos]["id"].asInt());
-//            //PGCARDDEVDATA stru ;
-//            //stru.strCardName        = value["result"][nPos]["tollgateName"].asString();
-//            //stru.strCardCode        = value["result"][nPos]["tollgateCode"].asString();
-//            //std::string strCDNum    = value["result"][nPos]["laneNumber"].asString();    //增加:车道总数
-//            //stru.nLaneNum            = atoi(strCDNum.c_str());
-//            //std::string strLaneDir    = value["result"][nPos]["laneDir"].asString();        //增加:车道方向,进行规则转换
-//            //stru.strLaneDir            = TransformLaneDir(strLaneDir);
-//            //stru.dWgs84_x            = value["result"][nPos]["wgs84_x"].asDouble();
-//            //stru.dWgs84_y            = value["result"][nPos]["wgs84_y"].asDouble();
-//            //stru.dMars_x            = value["result"][nPos]["mars_x"].asDouble();
-//            //stru.dMars_y            = value["result"][nPos]["mars_y"].asDouble();
-//            //lstCardDevData.emplace_back(stru);
-//			//result.push_back(obj);
-//			result.push(obj);
-//        }
-//    }
-//	return result;
-//}

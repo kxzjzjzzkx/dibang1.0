@@ -22,15 +22,12 @@
     <Filter Include="Header Files\service">
       <UniqueIdentifier>{32fff0cb-0a76-4125-a9e2-abd2df4c3b68}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Header Files\service\impl">
-      <UniqueIdentifier>{a15afbb6-46ee-429b-9c05-395da3e12db0}</UniqueIdentifier>
+    <Filter Include="Header Files\util\json">
+      <UniqueIdentifier>{79b72521-51f0-4660-aa98-9ec55164d151}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="gb.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="HttpUtils.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="SerialPort.cpp">
@@ -39,42 +36,18 @@
     <ClCompile Include="stdafx.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="DBUtils.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="MD5.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="SetMoneyService.h">
-      <Filter>Header Files\service</Filter>
+    <ClCompile Include="HttpUtils.cpp">
+      <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\..\..\..\桌面\json\assertions.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="json\autolink.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="json\config.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="json\features.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="json\forwards.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="gb.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="HttpUtils.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="json\json.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="json\reader.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="Resource.h">
@@ -89,13 +62,7 @@
     <ClInclude Include="targetver.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="json\value.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="..\..\..\..\桌面\json\version.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="json\writer.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="SerialPort.h">
@@ -125,6 +92,33 @@
     <ClInclude Include="sysconfig.h">
       <Filter>Header Files\util</Filter>
     </ClInclude>
+    <ClInclude Include="HttpUtils.h">
+      <Filter>Header Files\util</Filter>
+    </ClInclude>
+    <ClInclude Include="json\autolink.h">
+      <Filter>Header Files\util\json</Filter>
+    </ClInclude>
+    <ClInclude Include="json\config.h">
+      <Filter>Header Files\util\json</Filter>
+    </ClInclude>
+    <ClInclude Include="json\features.h">
+      <Filter>Header Files\util\json</Filter>
+    </ClInclude>
+    <ClInclude Include="json\forwards.h">
+      <Filter>Header Files\util\json</Filter>
+    </ClInclude>
+    <ClInclude Include="json\json.h">
+      <Filter>Header Files\util\json</Filter>
+    </ClInclude>
+    <ClInclude Include="json\reader.h">
+      <Filter>Header Files\util\json</Filter>
+    </ClInclude>
+    <ClInclude Include="json\value.h">
+      <Filter>Header Files\util\json</Filter>
+    </ClInclude>
+    <ClInclude Include="json\writer.h">
+      <Filter>Header Files\util\json</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <None Include="resource.hm">
@@ -139,6 +133,24 @@
       <Filter>Resource Files</Filter>
     </Image>
     <Image Include="small.ico">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="2017logo.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="2017logosmall.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="icon1.ico">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="png1.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="C:\Users\Think\Desktop\logo.ico">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="logo.ico">
       <Filter>Resource Files</Filter>
     </Image>
   </ItemGroup>
