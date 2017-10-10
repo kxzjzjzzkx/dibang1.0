@@ -82,7 +82,7 @@ bool CSerialPort::InitPort( UINT portNo /*= 1*/,UINT baud /*= CBR_9600*/,char pa
     /** 设置串口的超时时间,均设为0,表示不使用超时限制 */ 
     COMMTIMEOUTS  CommTimeouts;  
     CommTimeouts.ReadIntervalTimeout         = 0;  
-    CommTimeouts.ReadTotalTimeoutMultiplier  = 0;  
+    CommTimeouts.ReadTotalTimeoutMultiplier  = 10;  
     CommTimeouts.ReadTotalTimeoutConstant    = 0;  
     CommTimeouts.WriteTotalTimeoutMultiplier = 0;  
     CommTimeouts.WriteTotalTimeoutConstant   = 0;   
@@ -404,14 +404,14 @@ void CSerialPort::ReadOne(char *result) {
 	EnterCriticalSection(&m_csCommunicationSync);
 
 	bReadStat = ReadFile(m_hComm, result, wCount, &wCount, NULL);
-	if ((!bReadStat)) {
+	if ((!bReadStat)|| result[0] == '\0') {
 		/** 获取错误码,可以根据该错误码查出错误原因 */
 		DWORD dwError = GetLastError();
 		/** 清空串口缓冲区 */
 		PurgeComm(m_hComm, PURGE_RXCLEAR | PURGE_RXABORT);
 		LeaveCriticalSection(&m_csCommunicationSync);
+		strcpy(result, "0.0");
 		return;
-
 	}
 	PurgeComm(m_hComm, PURGE_RXCLEAR | PURGE_TXCLEAR | PURGE_RXABORT | PURGE_TXABORT);
 	/** 离开临界区 */

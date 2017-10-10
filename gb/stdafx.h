@@ -19,6 +19,9 @@
 #include <stdio.h>
 #include <string>
 
+// import json cpp
+#pragma comment(lib, "json_vc71_libmt.lib")
+#include "json/json.h"
 
 
 // TODO: reference additional headers your program requires here

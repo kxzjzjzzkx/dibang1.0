@@ -2,7 +2,7 @@
 //
 #include "stdafx.h"
 
-#pragma comment(lib, "json1.lib")
+#pragma comment(lib, "json_vc71_libmt.lib")
 
 #include "HttpUtils.h"
 #include <fstream>

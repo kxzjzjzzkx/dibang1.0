@@ -1,12 +1,10 @@
 #pragma once
+#include "stdafx.h"
 #include "sysconfig.h"
 
 #include "DBUtils.h"
 #include "HttpUtils.h"
 #include <time.h>
-
-#pragma comment(lib, "json1.lib")
-#include "json/json.h"
 
 void insert(string sqlString) {
 	DBUtils db;
