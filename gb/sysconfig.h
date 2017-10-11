@@ -31,17 +31,17 @@ select
 string SQL_USERS_SELECT_BY_CLIENTID		= "select top 1 id,selfid,username,group_id,company_id from users where clientid = '<CLIENTID>'";
 string SQL_USERS_BY_UAP					= "select count(*) as hasExist from users where username='<USERNAME>' and pwd='<PWD>' ";
 
-string SQL_V_SUPPLIERS_FOR_NOPAY	= "select * from v_suppliers where ispay = 0 order by id desc";
-string SQL_V_SUPPLIERS_FOR_PAY		= "select * from v_suppliers where ispay > 0 order by id desc";
+string SQL_V_SUPPLIERS_FOR_NOPAY	= "select * from v_suppliers where ispay = 0 and company_id = <COMPANY_ID> order by id desc";
+string SQL_V_SUPPLIERS_FOR_PAY		= "select * from v_suppliers where ispay > 0 and company_id = <COMPANY_ID> order by id desc";
 
 string SQL_SUPPLIERS_BY_ICCODE	= "select top 1 * from suppliers where iccode = '<ICCODE>' order by id desc";
 string SQL_SUPPLIERS_FOR_TOP1	= "select top 1 id from suppliers order by id desc";
 string SQL_SUPPLIERS_FOR_UPLOAD = "select * from suppliers where gmt_modified >#<GMT_MODIFIED># and company_id=<COMPANY_ID>";
-string SQL_SUPPLIERS_BY_SELFID  = "select  count(0) as hasExist  from suppliers where selfid = '<SELFID>'";;
+string SQL_SUPPLIERS_BY_SELFID  = "select  count(0) as hasExist  from suppliers where selfid = '<SELFID>'";
 
 string SQL_STORAGE_FOR_UPLOAD = "select * from storage where gmt_modified >#<GMT_MODIFIED># and company_id=<COMPANY_ID>";
 
-string SQL_V_STORAGELIST_BY_ICCODE = "select * from v_storagelist where iccode = '<ICCODE>' order by id desc";
+string SQL_V_STORAGELIST_BY_ICCODE = "select * from v_storagelist where iccode = '<ICCODE>' and company_id = <COMPANY_ID> order by id desc";
 
 string SQL_STORAGE_BY_ID			= "select * from storage where id = <ID>";
 string SQL_STORAGE_BY_SELFID = "select * from storage where selfid = '<SELFID>'";
@@ -74,7 +74,7 @@ string SQL_UPDATE_LOG_INSERT		= "INSERT INTO  update_log (maxid,bz,tablename) va
 /*
 update
 */
-string SQL_STORAGE_UPDATE_TO_PRICE_OVER =			"update `storage` set gmt_modified = now(),status = 2,price_time = <PRICE_TIME>,price=<PRICE>,products_selfid = '<PRODUCTS_SELFID>',price_users_selfid = '<PRICE_USERS_SELFID>' where id = <ID>";
+string SQL_STORAGE_UPDATE_TO_PRICE_OVER =			"update `storage` set gmt_modified = now(),status = 2,price_time = <PRICE_TIME>,price=<PRICE>,products_selfid = '<PRODUCTS_SELFID>',price_users_selfid = '<PRICE_USERS_SELFID>' ,total=<TOTAL> where id = <ID>";
 string SQL_STORAGE_UPDATE_TO_WEIGHT_OVER =			"update `storage` set gmt_modified = now(),status = 3,tare_check=1,nw=<NW>,total=<TOTAL>,tare=<TARE> where id = <ID>";
 string SQL_STORAGE_UPDATE_TO_TRADE_OVER =			"update `storage` set gmt_modified = now(),status = 4,pay_time = now(),ispay=1 , pay_users_selfid = '<PAY_USERS_SELFID>' where id = <ID>";
 string SQL_STORAGE_UPDATE_TO_TRADE_OVER_ONLINE =	"update `storage` set gmt_modified = now(),status = 4,pay_time = now(),ispay=2 , pay_users_selfid = '<PAY_USERS_SELFID>' where id = <ID>";

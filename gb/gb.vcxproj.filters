@@ -119,6 +119,9 @@
     <ClInclude Include="json\writer.h">
       <Filter>Header Files\util\json</Filter>
     </ClInclude>
+    <ClInclude Include="StorageService.h">
+      <Filter>Header Files\service</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <None Include="resource.hm">

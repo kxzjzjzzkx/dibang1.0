@@ -129,6 +129,7 @@
   <ItemGroup>
     <ClInclude Include="..\..\..\..\桌面\json\assertions.h" />
     <ClInclude Include="..\..\..\..\桌面\json\version.h" />
+    <ClInclude Include="StorageService.h" />
     <ClInclude Include="sysconfig.h" />
     <ClInclude Include="DateTypeUtils.h" />
     <ClInclude Include="DBUtils.h" />
