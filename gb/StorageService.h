@@ -18,6 +18,7 @@ void getTotalPrice(char* gw, char* tare,char* nw,char* price,char* totalPrice)
 	sprintf(nw, "%f", last);
 	double priceMoney = atof(price);
 	double totalMoney = last * priceMoney;
-	totalMoney = round(totalMoney * 100) / 100;
+	int totalInt = (int)(totalMoney * 100 + 0.5);
+	totalMoney = totalInt / 100;
 	sprintf(totalPrice, "%f", totalMoney);
 }

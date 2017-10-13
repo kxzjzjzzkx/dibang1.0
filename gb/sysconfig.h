@@ -47,7 +47,7 @@ string SQL_V_STORAGELIST_BY_ICCODE = "select * from v_storagelist where iccode =
 
 string SQL_STORAGE_BY_ID			= "select * from storage where id = <ID>";
 string SQL_STORAGE_BY_SELFID = "select * from storage where selfid = '<SELFID>'";
-string SQL_STORAGE_FOR_LAST_PRICE	= "select * from storage where company_id = <COMPANY_ID> and products_selfid = '<PRODUCTS_SELFID>' and price > 0 order by id desc";
+string SQL_STORAGE_FOR_LAST_PRICE	= "select * from storage where company_id = <COMPANY_ID> and products_selfid = '<PRODUCTS_SELFID>' and price > 0 and status=4 order by id desc";
 
 string SQL_UPDATE_LOG = "select * from update_log";
 

@@ -82,7 +82,7 @@ bool CSerialPort::InitPort( UINT portNo /*= 1*/,UINT baud /*= CBR_9600*/,char pa
     /** 设置串口的超时时间,均设为0,表示不使用超时限制 */ 
     COMMTIMEOUTS  CommTimeouts;  
     CommTimeouts.ReadIntervalTimeout         = 0;  
-    CommTimeouts.ReadTotalTimeoutMultiplier  = 1;  
+    CommTimeouts.ReadTotalTimeoutMultiplier  = 10;
     CommTimeouts.ReadTotalTimeoutConstant    = 0;  
     CommTimeouts.WriteTotalTimeoutMultiplier = 0;  
     CommTimeouts.WriteTotalTimeoutConstant   = 0;   
