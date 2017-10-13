@@ -7,6 +7,7 @@ using namespace std;
 string URL_LOGIN = "http://dibang.zz91.com/api/loginsave.html?username=<USERNAME>&pwd=<PASSWORD>&clientid=<CLIENTID>";
 string URL_GET_SELLER = "http://dibang.zz91.com/api/searchsuppliers.html?iccode=<iccode>";
 string URL_DATA_UPDATE_LOG = "http://dibang.zz91.com/api/datatable_update.html?maxid=<MAXID>&datatable=<DATATABLE>&company_id=<COMPANY_ID>";
+string URL_GET_AUTH = "http://dibang.zz91.com/api/getauth.html?user_selfid=<USER_SELFID>&company_id=<COMPANY_ID>";
 
 // http post
 string URL_DATA_GET_STORAGE_LASTTIME = "http://dibang.zz91.com/api/getstoragedate.html?company_id=<COMPANY_ID>";
@@ -36,6 +37,7 @@ string SQL_V_SUPPLIERS_FOR_PAY		= "select * from v_suppliers where ispay > 0 and
 
 string SQL_SUPPLIERS_BY_ICCODE	= "select top 1 * from suppliers where iccode = '<ICCODE>' order by id desc";
 string SQL_SUPPLIERS_FOR_TOP1	= "select top 1 id from suppliers order by id desc";
+string SQL_SUPPLIERS_FOR_TOP1_ALL = "select top 1 * from suppliers order by id desc";
 string SQL_SUPPLIERS_FOR_UPLOAD = "select * from suppliers where gmt_modified >#<GMT_MODIFIED># and company_id=<COMPANY_ID>";
 string SQL_SUPPLIERS_BY_SELFID  = "select  count(0) as hasExist  from suppliers where selfid = '<SELFID>'";
 
