@@ -23,5 +23,6 @@
 #pragma comment(lib, "json_vc71_libmt.lib")
 #include "json/json.h"
 
+#include "DBUtils.h"
 
 // TODO: reference additional headers your program requires here

@@ -62,11 +62,13 @@ string SQL_PRODUCTS_SELECT_BY_COMPANY_ID = "select top 1 * from products where c
 string SQL_EQSET_SELECT_ALL					= "select * from eqset";
 string SQL_EQSET_SELECT_HASEXIST			= "select count(0) as hasExist from eqset where eq_type = '<EQ_TYPE>' ";
 
+string SQL_COMPANY_CTYPE_BY_ID				= "select ctype from company where id = <ID>";
+
 /*
 insert
 */
 string SQL_STORAGE_INSERT			= "INSERT INTO `storage` (`selfid`,`group_id`,`company_id`,`code`,`suppliers_selfid`,`gw`,`status`,`price_users_selfid`,`ispay`,`eqtype`) VALUES ('<SELFID>',<GROUP_ID>,<COMPANY_ID>,'<CODE>','<SUPPLIERS_SELFID>',<GW>,<STATUS>,'<PRICE_USERS_SELFID>',<ISPAY>,'<EQTYPE>')";
-string SQL_SUPPLIERS_INSERT			= "INSERT INTO `suppliers`(`selfid`,`iccode`,`name`,`contact`,`company_id`) VALUES('<SELFID>','<ICCODE>','<NAME>','<CONTACT>','<COMPANY_ID>')";
+string SQL_SUPPLIERS_INSERT			= "INSERT INTO `suppliers`(`selfid`,`iccode`,`name`,`contact`,`company_id`,`group_id`,`ctype`) VALUES('<SELFID>','<ICCODE>','<NAME>','<CONTACT>','<COMPANY_ID>',<GROUP_ID>,<CTYPE>)";
 string SQL_USERS_INSERT				= "INSERT INTO  users (selfid,group_id,company_id,clientid,username,pwd) VALUES ('<SELFID>',<GROUP_ID>,<COMPANY_ID>,'<CLIENTID>','<USERNAME>','<PWD>')";
 string SQL_PRODUCTS_INSERT			= "INSERT INTO `products`(`selfid`,`group_id`,`company_id`,`name`,`name_py`,`category_selfid`,`spec`,`unit`,`stock`,`bz`)VALUES ('<SELFID>',<GROUP_ID>,<COMPANY_ID>,'<NAME>','<NAME_PY>','<CATEGORY_SELFID>','<SPEC>','<UNIT>',<STOCK>,'<BZ>')";
 string SQL_CATEGORY_PRODUCTS_INSERT = "INSERT INTO `category_products`(`selfid`,`sub_selfid`,`company_id`,`name`) VALUES ('<SELFID>','<SUB_SELFID>',<COMPANY_ID>,'<NAME>')";

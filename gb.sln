@@ -1,8 +1,14 @@
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
-VisualStudioVersion = 15.0.26730.12
+VisualStudioVersion = 15.0.27004.2002
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "gb", "gb\gb.vcxproj", "{DBD747E4-A82D-42E1-AEBE-3BD4C8E3644F}"
+EndProject
+Project("{54435603-DBB4-11D2-8724-00A0C9A8B90C}") = "SetupGB", "SetupGB\SetupGB.vdproj", "{7C57F1FF-AB8E-4502-B41C-80B43E39865E}"
+EndProject
+Project("{54435603-DBB4-11D2-8724-00A0C9A8B90C}") = "SetupTest", "SetupTest\SetupTest.vdproj", "{3BDF6063-1344-4667-8F43-4FB49D3BF5D6}"
+EndProject
+Project("{54435603-DBB4-11D2-8724-00A0C9A8B90C}") = "WebSetup1", "WebSetup1\WebSetup1.vdproj", "{0144D2EC-3456-49E8-BF40-E3873725264C}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -24,6 +30,24 @@ Global
 		{DBD747E4-A82D-42E1-AEBE-3BD4C8E3644F}.Release|Win32.ActiveCfg = Release|Win32
 		{DBD747E4-A82D-42E1-AEBE-3BD4C8E3644F}.Release|Win32.Build.0 = Release|Win32
 		{DBD747E4-A82D-42E1-AEBE-3BD4C8E3644F}.Release|x64.ActiveCfg = Release|Win32
+		{7C57F1FF-AB8E-4502-B41C-80B43E39865E}.Debug|Win32.ActiveCfg = Debug
+		{7C57F1FF-AB8E-4502-B41C-80B43E39865E}.Debug|x64.ActiveCfg = Debug
+		{7C57F1FF-AB8E-4502-B41C-80B43E39865E}.dummy|Win32.ActiveCfg = Debug
+		{7C57F1FF-AB8E-4502-B41C-80B43E39865E}.dummy|x64.ActiveCfg = Debug
+		{7C57F1FF-AB8E-4502-B41C-80B43E39865E}.Release|Win32.ActiveCfg = Release
+		{7C57F1FF-AB8E-4502-B41C-80B43E39865E}.Release|x64.ActiveCfg = Release
+		{3BDF6063-1344-4667-8F43-4FB49D3BF5D6}.Debug|Win32.ActiveCfg = Debug
+		{3BDF6063-1344-4667-8F43-4FB49D3BF5D6}.Debug|x64.ActiveCfg = Debug
+		{3BDF6063-1344-4667-8F43-4FB49D3BF5D6}.dummy|Win32.ActiveCfg = Debug
+		{3BDF6063-1344-4667-8F43-4FB49D3BF5D6}.dummy|x64.ActiveCfg = Debug
+		{3BDF6063-1344-4667-8F43-4FB49D3BF5D6}.Release|Win32.ActiveCfg = Release
+		{3BDF6063-1344-4667-8F43-4FB49D3BF5D6}.Release|x64.ActiveCfg = Release
+		{0144D2EC-3456-49E8-BF40-E3873725264C}.Debug|Win32.ActiveCfg = Debug
+		{0144D2EC-3456-49E8-BF40-E3873725264C}.Debug|x64.ActiveCfg = Debug
+		{0144D2EC-3456-49E8-BF40-E3873725264C}.dummy|Win32.ActiveCfg = Debug
+		{0144D2EC-3456-49E8-BF40-E3873725264C}.dummy|x64.ActiveCfg = Debug
+		{0144D2EC-3456-49E8-BF40-E3873725264C}.Release|Win32.ActiveCfg = Release
+		{0144D2EC-3456-49E8-BF40-E3873725264C}.Release|x64.ActiveCfg = Release
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

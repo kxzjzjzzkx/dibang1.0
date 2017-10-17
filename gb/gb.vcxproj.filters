@@ -25,6 +25,9 @@
     <Filter Include="Header Files\util\json">
       <UniqueIdentifier>{79b72521-51f0-4660-aa98-9ec55164d151}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Header Files\util\skin">
+      <UniqueIdentifier>{83c08977-e145-40f4-a5c6-761b55267591}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="gb.cpp">
@@ -122,6 +125,12 @@
     <ClInclude Include="StorageService.h">
       <Filter>Header Files\service</Filter>
     </ClInclude>
+    <ClInclude Include="LoginService.h">
+      <Filter>Header Files\service</Filter>
+    </ClInclude>
+    <ClInclude Include="skin++\lib\SkinPPWTL.h">
+      <Filter>Header Files\util\skin</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <None Include="resource.hm">
@@ -168,5 +177,6 @@
   <ItemGroup>
     <Library Include="..\..\jsoncpp-src-0.5.0\build\vs71\release\lib_json\json_vc71_libmt.lib" />
     <Library Include="..\..\jsoncpp-src-0.5.0\build\vs71\debug\lib_json\json1.lib" />
+    <Library Include="skin++\lib\SkinPPWTL.lib" />
   </ItemGroup>
 </Project>

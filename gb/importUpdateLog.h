@@ -2,7 +2,7 @@
 #include "stdafx.h"
 #include "sysconfig.h"
 
-#include "DBUtils.h"
+//#include "DBUtils.h"
 #include "HttpUtils.h"
 #include <time.h>
 
@@ -148,7 +148,7 @@ void insertForSuppliers(Json::Value value) {
 		if (hasExist != "0") {
 			continue;
 		}
-		//string SQL_SUPPLIERS_INSERT = "INSERT INTO `suppliers`(`selfid`,`iccode`,`name`,`contact`,`company_id`) VALUES('<SELFID>','<ICCODE>','<NAME>','<CONTACT>','<COMPANY_ID>')";
+		//string SQL_SUPPLIERS_INSERT = "INSERT INTO `suppliers`(`selfid`,`iccode`,`name`,`contact`,`company_id`,`group_id`,`ctype`) VALUES('<SELFID>','<ICCODE>','<NAME>','<CONTACT>','<COMPANY_ID>','<GROUP_ID>',<CTYPE>)";
 		sqlString = SQL_SUPPLIERS_INSERT;
 		sqlString = sqlString.replace(sqlString.find("<SELFID>"), 8, selfid);
 		string iccode = value["list"][i]["iccode"].asString();
@@ -157,11 +157,18 @@ void insertForSuppliers(Json::Value value) {
 		sqlString = sqlString.replace(sqlString.find("<NAME>"), 6, name);
 		string contact = value["list"][i]["contact"].asString();
 		sqlString = sqlString.replace(sqlString.find("<CONTACT>"), 9, contact);
+		int groupid = value["list"][i]["groupid"].asInt();
+		char groupidChar[20];
+		sprintf(groupidChar, "%d", groupid);
+		sqlString = sqlString.replace(sqlString.find("<GROUP_ID>"), 10, groupidChar);
+		int ctype = value["list"][i]["ctype"].asInt();
+		char ctypeChar[20];
+		sprintf(ctypeChar, "%d", ctype);
+		sqlString = sqlString.replace(sqlString.find("<CTYPE>"), 7, ctypeChar);
 		int companyId = value["list"][i]["company_id"].asInt();
 		char companyIdChar[20];
 		sprintf(companyIdChar, "%d", companyId);
 		sqlString = sqlString.replace(sqlString.find("<COMPANY_ID>"), 12, companyIdChar);
-
 		insert(sqlString);
 	}
 }
@@ -186,7 +193,6 @@ void systemDataInit() {
 		string datatable = _com_util::ConvertBSTRToString((_bstr_t)var);
 		var = db.HX_pRecordset->GetCollect("maxid");
 		string maxid = _com_util::ConvertBSTRToString((_bstr_t)var);
-
 		// ƴװurl
 		string urlString = URL_DATA_UPDATE_LOG;
 		urlString = urlString.replace(urlString.find("<MAXID>"), 7, maxid);
@@ -269,6 +275,44 @@ string bulidUploadStorageData(DBUtils db) {
 		uploadData = bulidUploadColumn("scorecheck", db, uploadData);
 		uploadData = bulidUploadColumn("pay_time", db, uploadData);
 		uploadData = bulidUploadColumn("pay_users_selfid", db, uploadData);
+		uploadData = bulidUploadColumn("gmt_created", db, uploadData);
+		uploadData = bulidUploadColumn("gmt_modified", db, uploadData);
+		uploadData = uploadData + "$";
+		db.HX_pRecordset->MoveNext();
+	}
+	return uploadData;
+}
+
+string bulidUploadSuppliersData(DBUtils db) {
+	string uploadData = "";
+	while (!db.HX_pRecordset->adoEOF)
+	{
+		string strValue;
+		// selfid group_id company_id code products_selfid suppliers_selfid
+		_variant_t var = db.HX_pRecordset->GetCollect("selfid");
+		if (var.vt != VT_NULL) {
+			strValue = _com_util::ConvertBSTRToString((_bstr_t)var);
+		}
+		else {
+			strValue = "";
+		}
+		if (uploadData == "" || (*(uploadData.end() - 1) == '$')) {
+			uploadData = uploadData + strValue;
+		}
+		else {
+			uploadData = uploadData + "|" + strValue;
+		}
+		uploadData = bulidUploadColumn("ctype", db, uploadData);
+		uploadData = bulidUploadColumn("iccode", db, uploadData);
+		uploadData = bulidUploadColumn("group_id", db, uploadData);
+		uploadData = bulidUploadColumn("company_id", db, uploadData);
+		uploadData = bulidUploadColumn("name", db, uploadData);
+		uploadData = bulidUploadColumn("htype", db, uploadData);
+		uploadData = bulidUploadColumn("contact", db, uploadData);
+		uploadData = bulidUploadColumn("mobile", db, uploadData);
+		uploadData = bulidUploadColumn("pwd", db, uploadData);
+		uploadData = bulidUploadColumn("address", db, uploadData);
+		uploadData = bulidUploadColumn("bz", db, uploadData);
 		uploadData = bulidUploadColumn("gmt_created", db, uploadData);
 		uploadData = bulidUploadColumn("gmt_modified", db, uploadData);
 		uploadData = uploadData + "$";
