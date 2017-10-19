@@ -25,6 +25,12 @@
 #define IDB_PNG1                        140
 #define IDI_ICON1                       142
 #define IDI_ICON2                       143
+#define IDR_MENU1                       144
+#define IDR_MENU_STORAGE                145
+#define IDM_ADMIN_URL					146
+#define IDM_SUPPLIERS_ADD				147
+#define IDM_SUPPLIERS_MANAGE			148
+
 #define IDC_COMBO_PRODUCT_CODE          1011
 #define IDC_LIST_STORAGE                1012
 #define IDC_EDIT_SEARCHKEY              1013
@@ -60,6 +66,11 @@
 #define IDC_BUTTON_CHOOSE               1050
 #define IDC_TAB_PORT_CONFIG             1051
 #define IDC_BUTTON_PORT_CONFIG_SAVE     1052
+#define IDC_COMBO_SELECT_TYPE           1054
+#define IDC_BUTTON_READ_IC              1055
+#define IDC_BUTTON_CHOOSE_SUPPLIERS     1056
+#define IDC_BUTTON1                     1062
+#define IDC_MFCMENUBUTTON1              1066
 #define IDC_STATIC                      -1
 
 // Next default values for new objects
@@ -67,9 +78,9 @@
 #ifdef APSTUDIO_INVOKED
 #ifndef APSTUDIO_READONLY_SYMBOLS
 #define _APS_NO_MFC                     1
-#define _APS_NEXT_RESOURCE_VALUE        144
+#define _APS_NEXT_RESOURCE_VALUE        146
 #define _APS_NEXT_COMMAND_VALUE         32771
-#define _APS_NEXT_CONTROL_VALUE         1053
+#define _APS_NEXT_CONTROL_VALUE         1068
 #define _APS_NEXT_SYMED_VALUE           111
 #endif
 #endif
