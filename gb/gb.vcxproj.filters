@@ -131,6 +131,9 @@
     <ClInclude Include="skin++\lib\SkinPPWTL.h">
       <Filter>Header Files\util\skin</Filter>
     </ClInclude>
+    <ClInclude Include="ICService.h">
+      <Filter>Header Files\service</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <None Include="resource.hm">
@@ -163,6 +166,15 @@
       <Filter>Resource Files</Filter>
     </Image>
     <Image Include="logo.ico">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="icon3.ico">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="icon4.ico">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="dibang128X128.ico">
       <Filter>Resource Files</Filter>
     </Image>
   </ItemGroup>

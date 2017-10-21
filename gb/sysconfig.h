@@ -36,6 +36,9 @@ string SQL_V_SUPPLIERS_FOR_NOPAY	= "select * from v_suppliers where ispay = 0 an
 string SQL_V_SUPPLIERS_FOR_PAY		= "select * from v_suppliers where ispay > 0 and company_id = <COMPANY_ID> order by id desc";
 
 string SQL_SUPPLIERS_BY_ICCODE	= "select top 1 * from suppliers where iccode = '<ICCODE>' order by id desc";
+string SQL_SUPPLIERS_BY_MOBILE = "select * from suppliers where mobile = '<MOBILE>' order by id desc";
+string SQL_SUPPLIERS_BY_CONTACT = "select * from suppliers where contact like '%<CONTACT>%' order by id desc";
+
 string SQL_SUPPLIERS_FOR_TOP1	= "select top 1 id from suppliers order by id desc";
 string SQL_SUPPLIERS_FOR_TOP1_ALL = "select top 1 * from suppliers order by id desc";
 string SQL_SUPPLIERS_FOR_UPLOAD = "select * from suppliers where gmt_modified >#<GMT_MODIFIED># and company_id=<COMPANY_ID>";

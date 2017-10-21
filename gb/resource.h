@@ -27,10 +27,14 @@
 #define IDI_ICON2                       143
 #define IDR_MENU1                       144
 #define IDR_MENU_STORAGE                145
-#define IDM_ADMIN_URL					146
-#define IDM_SUPPLIERS_ADD				147
-#define IDM_SUPPLIERS_MANAGE			148
-
+#define IDM_ADMIN_URL                   146
+#define IDD_DIALOG_SUPPLIERS_LIST       146
+#define IDM_SUPPLIERS_ADD               147
+#define IDD_DIALOG_SUPPLIERS_CHOOSE     147
+#define IDM_SUPPLIERS_MANAGE            148
+#define IDD_DIALOG_SUPPLIERS_ADD        148
+#define IDI_ICON5                       151
+#define IDI_ICON_MAIN                   151
 #define IDC_COMBO_PRODUCT_CODE          1011
 #define IDC_LIST_STORAGE                1012
 #define IDC_EDIT_SEARCHKEY              1013
@@ -78,7 +82,7 @@
 #ifdef APSTUDIO_INVOKED
 #ifndef APSTUDIO_READONLY_SYMBOLS
 #define _APS_NO_MFC                     1
-#define _APS_NEXT_RESOURCE_VALUE        146
+#define _APS_NEXT_RESOURCE_VALUE        152
 #define _APS_NEXT_COMMAND_VALUE         32771
 #define _APS_NEXT_CONTROL_VALUE         1068
 #define _APS_NEXT_SYMED_VALUE           111
